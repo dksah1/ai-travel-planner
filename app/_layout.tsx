@@ -1,8 +1,8 @@
-import { Stack } from "expo-router";
+import { Stack } from "expo-router/stack";
 import { useFonts } from "expo-font";
 import { useEffect, useState } from "react";
 import * as Font from "expo-font";
-
+import { CreateTripContext } from "./../context/MyTripContext";
 export default function RootLayout() {
   // const [fontsLoaded, setFontsLoaded] = useState(false);
   // useEffect(() => {
@@ -24,15 +24,23 @@ export default function RootLayout() {
     "outfit-bold": require("./../assets/fonts/Outfit-Bold.ttf"),
   });
 
+  const [tripData, setTripData] = useState([]);
+
   return (
-    <Stack>
-      {/* <Stack.Screen
+    <CreateTripContext.Provider value={{ tripData, setTripData }}>
+      <Stack
+        screenOptions={{
+          headerShown: false,
+        }}
+      >
+        {/* <Stack.Screen
         name="index"
         options={{
           headerShown: false,
         }}
       /> */}
-      <Stack.Screen name="(tabs)" />
-    </Stack>
+        <Stack.Screen name="(tabs)" />
+      </Stack>
+    </CreateTripContext.Provider>
   );
 }
