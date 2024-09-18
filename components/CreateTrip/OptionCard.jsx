@@ -1,12 +1,21 @@
 import { View, Text } from "react-native";
 import React from "react";
+import { Colors } from "../../constants/Colors";
 
-export default function OptionCard({ option }) {
+export default function OptionCard({ option, selectTraveller }) {
   return (
     <View
-      style={{
-        padding: 15,
-      }}
+      style={[
+        {
+          padding: 25,
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "space-between",
+          backgroundColor: Colors.LightGray,
+          borderRadius: 15,
+        },
+        selectTraveller?.id == option?.id && { borderWidth: 2 },
+      ]}
     >
       <View>
         <Text
@@ -28,7 +37,7 @@ export default function OptionCard({ option }) {
       </View>
       <Text
         style={{
-          fontSize: 30,
+          fontSize: 40,
         }}
       >
         {option?.icon}
