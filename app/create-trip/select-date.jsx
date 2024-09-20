@@ -1,6 +1,6 @@
 import { View, Text, TouchableOpacity, ToastAndroid } from "react-native";
 import React, { useContext, useEffect, useState } from "react";
-import { useNavigation } from "expo-router";
+import { useNavigation, useRouter } from "expo-router";
 import { Colors } from "../../constants/Colors";
 // import { Calendar } from "react-native-calendars";
 import CalendarPicker from "react-native-calendar-picker";
@@ -13,6 +13,7 @@ export default function SelectDate() {
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
   const { tripData, setTripData } = useContext(CreateTripContext);
+  const router = useRouter();
 
   useEffect(() => {
     navigation.setOptions({
@@ -44,6 +45,7 @@ export default function SelectDate() {
       endDate: endDate.format("YYYY-MM-DD"),
       totalNoOfDays: totalNoOfDays + 1,
     });
+    router.push("/create-trip/select-budget");
   };
 
   return (

@@ -42,3 +42,24 @@ export const SelectTravelsList = [
     people: "10",
   },
 ];
+
+export const SelectBudgetOptions = [
+  {
+    id: 1,
+    title: "Cheap",
+    desc: "Best for budget travelers who are looking to save money.",
+    icon: "💸",
+  },
+  {
+    id: 2,
+    title: "Moderate",
+    desc: "Ideal for those looking for a balance between comfort and cost.",
+    icon: "💰",
+  },
+  {
+    id: 3,
+    title: "Luxury",
+    desc: "Perfect for travelers seeking high-end experiences and premium services.",
+    icon: "💎",
+  },
+];
